@@ -31,6 +31,12 @@ export default function UploadButton(props) {
         panelConfig: panelConfig,
       });
     }, 0);
+    setTimeout(() => {
+      console.log("Click browse button");
+      document
+        .querySelector(`[data-test="data-center-importer-local-upload-button"]`)
+        .click();
+    }, 1);
   };
 
   return (

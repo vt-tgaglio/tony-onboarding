@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Container from "./components/Container";
+import { token } from "./token";
 
 const App = () => {
   const [file, setFile] = useState({ url: "testurl" });
@@ -10,7 +11,7 @@ const App = () => {
         baseUrl: "https://api.stage.us-1.veritone.com/v3/graphql",
         applicationId: "app-123",
         withAuth: true,
-        authToken: "36f75003-8d00-4a3e-a496-6c301dacebc7", // Get this from `/v1/admin/current-user`
+        authToken: token, // Get this from `/v1/admin/current-user`
       },
       function () {
         window.aiware.mountWidget({
@@ -30,6 +31,10 @@ const App = () => {
           console.log(file);
           setTimeout(() => {
             setFile(file);
+            console.log("Closing Importer panel");
+            document
+              .querySelector(`[data-test="data-center-importer-close-panel"]`)
+              .click();
           }, 500);
         });
         window.aiware.on("fileUploadProgress", function (error, file) {
@@ -42,11 +47,7 @@ const App = () => {
       }
     );
   }, []);
-  return (
-    <div>
-      <Container file={file} />
-    </div>
-  );
+  return <Container className="app-container" file={file} />;
 };
 
 export default App;

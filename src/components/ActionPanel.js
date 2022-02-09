@@ -8,7 +8,7 @@ const ActionPanel = ({ description, isEnabled, image, children }) => {
     justifyContent: "center",
     alignItems: "center",
     flexDirection: "column",
-    borderRight: "2px solid #f7f7f7",
+    borderRight: "2px solid rgb(135 255 94 / 17%)",
     padding: "50px",
     width: "50%",
     opacity: `${isEnabled ? "100%" : "30%"}`,
@@ -21,7 +21,7 @@ const ActionPanel = ({ description, isEnabled, image, children }) => {
   };
   return (
     <div style={actionPanelStyles}>
-      <div style={{ height: "150px" }}>
+      <div>
         <img src={image} style={imageStyles} />
       </div>
       <Typography variant="body2" gutterBottom>
