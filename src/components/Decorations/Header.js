@@ -13,6 +13,7 @@ const Header = () => {
     padding: 0,
     margin: 0,
     fontSize: "1.5rem",
+    textShadow: "3px 4px 4px black",
   };
   const headingStyles = {
     padding: "0px",
@@ -22,13 +23,13 @@ const Header = () => {
     color: "white",
     margin: 0,
   };
-  const fancyTextClip = {
-    background: "linear-gradient(90deg, #56f504, rgb(0 114 255))",
-    backgroundClip: "text",
-    WebkitBackgroundClip: "text",
-    WebkitTextFillColor: "transparent",
-    color: "transparent",
-  };
+  // const fancyTextClip = {
+  //   background: "linear-gradient(90deg, #56f504, rgb(0 114 255))",
+  //   backgroundClip: "text",
+  //   WebkitBackgroundClip: "text",
+  //   WebkitTextFillColor: "transparent",
+  //   color: "transparent",
+  // };
   const xboxSpanStyles = {
     color: xboxGreen,
     textShadow: "0px 0px 11px #79f133",
@@ -37,11 +38,11 @@ const Header = () => {
   const psSpanStyles = {
     color: playstationBlue,
     textShadow: "rgb(0 0 0) 0px 0px 11px",
-    fontStyle: "normal",
+    // fontStyle: "normal",
   };
   return (
     <div style={containerStyles}>
-      <p style={subHeadingStyles}>Let's see..... is the machine an</p>
+      <p style={subHeadingStyles}>Let's see..... is your photo of</p>
       <h1 style={headingStyles}>
         <span style={xboxSpanStyles}>XBOX</span> or{" "}
         <span style={psSpanStyles}>PlayStation</span>?

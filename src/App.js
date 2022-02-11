@@ -1,10 +1,26 @@
 import React, { useEffect, useState } from "react";
 import Container from "./components/Container";
-import { token } from "./token";
+import {
+  token,
+  enableAutoUploadClicks,
+  initialIsScanning,
+  initialIsDone,
+  initialFileValue,
+} from "./config";
 
 const App = () => {
-  const [file, setFile] = useState({ url: "testurl" });
+  const [file, setFile] = useState(initialFileValue);
+  const [isScanning, setIsScanning] = useState(initialIsScanning);
+  const [isDone, setIsDone] = useState(initialIsDone);
 
+  const handleScanImage = () => {
+    console.log("Image is currently scanning...");
+    setIsScanning(true);
+  };
+  const handleIsDoneScanning = () => {
+    console.log("Image is finished scanning! Results displaying now.");
+    setIsDone(true);
+  };
   useEffect(() => {
     window.aiware.init(
       {
@@ -32,9 +48,11 @@ const App = () => {
           setTimeout(() => {
             setFile(file);
             console.log("Closing Importer panel");
-            document
-              .querySelector(`[data-test="data-center-importer-close-panel"]`)
-              .click();
+            if (enableAutoUploadClicks) {
+              document
+                .querySelector(`[data-test="data-center-importer-close-panel"]`)
+                .click();
+            }
           }, 500);
         });
         window.aiware.on("fileUploadProgress", function (error, file) {
@@ -47,7 +65,17 @@ const App = () => {
       }
     );
   }, []);
-  return <Container className="app-container" file={file} />;
+
+  return (
+    <Container
+      className="app-container"
+      file={file}
+      onScanImage={handleScanImage}
+      isScanning={isScanning}
+      isDone={isDone}
+      onDoneScanning={handleIsDoneScanning}
+    />
+  );
 };
 
 export default App;

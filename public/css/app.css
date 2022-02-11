@@ -1,0 +1,76 @@
+:root {
+  --x: 0px;
+  --y: 0px;
+}
+body,
+html {
+  background-color: black;
+}
+
+[data-test="appbarTitle"] {
+  color: #9bf00a;
+  text-shadow: 0 0 12px #60db2a;
+}
+
+.MuiButton-containedSuccess {
+  color: #0b1936 !important;
+  background-color: #9bf00a !important;
+  text-shadow: 1px 2px 4px #51dd1b !important;
+}
+
+.scan-results-image-container {
+  display: flex;
+  justify-content: center;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+  position: relative;
+}
+.scan-results-image-overlay {
+  transition: opacity 0.3s ease-in-out;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  background: rgb(155 240 11 / 70%);
+  border-radius: 20px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: black;
+  font-weight: bold;
+  text-transform: uppercase;
+  box-shadow: 0px 0px 19px 13px rgb(110 240 11 / 50%);
+  backdrop-filter: blur(2px);
+}
+.scan-results-image-container:hover .scan-results-image-overlay {
+  opacity: 100;
+}
+.scan-results-image-container:hover {
+  transform: scale(0.8);
+}
+
+/* Animated magnify glass */
+.magnify-glyph {
+  background: transparent;
+  animation: ease-in-out infinite;
+  animation-name: swipe;
+  animation-duration: 2.2s;
+}
+
+@keyframes swipe {
+  0% {
+    right: 150px;
+    bottom: 100px;
+  }
+  50% {
+    right: 280px;
+    bottom: 0px;
+  }
+  100% {
+    right: 150px;
+    bottom: 100px;
+  }
+}

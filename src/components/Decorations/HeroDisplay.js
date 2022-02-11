@@ -34,7 +34,10 @@ const HeroDisplay = () => {
         heroImg="./assets/img/playstation-character.png"
         delay="1"
       />
-      <div style={fireContainerStyles}>
+      <div
+        className="animate__animated animate__fadeIn animate__delay2s"
+        style={fireContainerStyles}
+      >
         <FireAnimated
           style={{
             filter: "hue-rotate(105deg) brightness(1.2)",
