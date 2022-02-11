@@ -6,12 +6,14 @@ import {
   initialIsScanning,
   initialIsDone,
   initialFileValue,
+  initialObjectDetected,
 } from "./config";
 
 const App = () => {
   const [file, setFile] = useState(initialFileValue);
   const [isScanning, setIsScanning] = useState(initialIsScanning);
   const [isDone, setIsDone] = useState(initialIsDone);
+  const [object, setObject] = useState(initialObjectDetected);
 
   const handleScanImage = () => {
     console.log("Image is currently scanning...");
@@ -74,6 +76,8 @@ const App = () => {
       isScanning={isScanning}
       isDone={isDone}
       onDoneScanning={handleIsDoneScanning}
+      object={object}
+      setObject={setObject}
     />
   );
 };

@@ -25,16 +25,21 @@ const ScanningPanel = (props) => {
   const [isDoneLocal, setIsDoneLocal] = useState(initialIsDone);
   const [foundObject, setFoundObject] = useState(initialObjectDetected);
   const [scanResults, setScanResults] = useState(initialScanResults);
-
-  useEffect(() => {
+  const updateObject = (objName) => {
+    setFoundObject(objName);
+    props.setObject(objName);
+  };
+  const mockResults = () => {
     const { name } = props.file.file;
     if (name.includes("playstation")) {
-      setFoundObject("playstation");
+      updateObject("playstation");
     } else if (name.includes("xbox")) {
-      setFoundObject("xbox");
+      updateObject("xbox");
     } else {
-      setFoundObject("Unknown 😲");
+      updateObject("Unknown 😲");
     }
+  };
+  useEffect(() => {
     const cyclePhrase = setInterval(() => {
       if (index >= phrasesArray.length - 1) {
         index = 0;
@@ -53,6 +58,7 @@ const ScanningPanel = (props) => {
         setPhrase("Processing complete!");
         props.onDoneScanning();
         setIsDoneLocal(true);
+        mockResults();
         return;
       }
       setProgress(p);

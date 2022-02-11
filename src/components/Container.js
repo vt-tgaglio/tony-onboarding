@@ -1,3 +1,4 @@
+import Backdrop from "./Decorations/Backdrop";
 import React from "react";
 import HeroDisplay from "./Decorations/HeroDisplay";
 import FormContainer from "./FormContainer";
@@ -15,6 +16,7 @@ const Container = (props) => {
     justifyContent: "center",
     alignItems: "center",
     backgroundPosition: "var(--x) var(--y)",
+    position: "relative",
   };
   const handleMouseMove = (e) => {
     const strength = 0.05;
@@ -37,9 +39,11 @@ const Container = (props) => {
         <ScanningPanel
           file={props.file}
           onDoneScanning={props.onDoneScanning}
+          setObject={props.setObject}
         />
       )}
       <HeroDisplay />
+      <Backdrop object={props.object} />
     </div>
   );
 };

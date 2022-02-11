@@ -21,6 +21,7 @@ html {
 .scan-results-image-container {
   display: flex;
   justify-content: center;
+  align-items: center;
   transition: all 0.3s ease-in-out;
   cursor: pointer;
   position: relative;
@@ -72,5 +73,33 @@ html {
   100% {
     right: 150px;
     bottom: 100px;
+  }
+}
+.floating-ufo {
+  animation: floating 2s ease-in-out infinite;
+}
+@keyframes floating {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+.floating-console {
+  animation: wobble 5s ease-in-out infinite;
+}
+@keyframes wobble {
+  0% {
+    transform: rotateX(0deg);
+  }
+  50% {
+    transform: rotateX(10deg);
+  }
+  100% {
+    transform: rotateX(0deg);
   }
 }

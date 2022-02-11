@@ -15,7 +15,7 @@ export default function ScanButton(props) {
         disabled={!props.isEnabled}
         color="success"
       >
-        Scan
+        {props.isEnabled ? "Start Scanning" : "Scan"}
       </Button>
     </Stack>
   );

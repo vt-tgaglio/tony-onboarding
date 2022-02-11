@@ -41,7 +41,7 @@ const Header = () => {
     // fontStyle: "normal",
   };
   return (
-    <div style={containerStyles}>
+    <div className="header" style={containerStyles}>
       <p style={subHeadingStyles}>Let's see..... is your photo of</p>
       <h1 style={headingStyles}>
         <span style={xboxSpanStyles}>XBOX</span> or{" "}

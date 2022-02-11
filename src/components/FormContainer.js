@@ -10,16 +10,14 @@ const FormContainer = (props) => {
     <>
       <Header />
       <div
-        className="animate__animated animate__fadeIn animate__delay1s"
+        className="form-container animate__animated animate__fadeIn animate__delay1s"
         style={formContainerStyles}
       >
         <ActionPanel
           isEnabled={true}
           image={props.file.getUrl ? props.file.getUrl : "./add-image.png"}
           description={
-            props.file.getUrl
-              ? "Let's see what video game console this is!"
-              : "Upload an image to the Game Console Detector."
+            props.file.getUrl ? "Image uploaded" : "Detect a Game Console"
           }
         >
           <UploadButton
@@ -29,7 +27,7 @@ const FormContainer = (props) => {
         <ActionPanel
           isEnabled={props.file.getUrl}
           image="./palm-scan.png"
-          description="Run a Cognitive engine against the image"
+          description="Xbox? PlayStation? Or something else..."
         >
           <ScanButton
             isEnabled={!!props.file.getUrl}

@@ -2,6 +2,7 @@ import React from "react";
 import TransparentHeroImage from "./TransparentHeroImage";
 import Slide from "@mui/material/Slide";
 import FireAnimated from "./FireAnimated";
+import VignetteShadowOverlay from "./VignetteShadowOverlay";
 
 const HeroDisplay = () => {
   const containerStyles = {
@@ -15,6 +16,7 @@ const HeroDisplay = () => {
     bottom: "0",
     pointerEvents: "none",
     overflow: "hidden",
+    zIndex: 2,
   };
   const fireContainerStyles = {
     position: "absolute",
@@ -24,7 +26,7 @@ const HeroDisplay = () => {
     justifyContent: "space-between",
   };
   return (
-    <div style={containerStyles}>
+    <div className="hero-display" style={containerStyles}>
       <TransparentHeroImage
         position="left"
         heroImg="./assets/img/xbox-character.png"
