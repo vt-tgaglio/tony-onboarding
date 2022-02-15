@@ -30,6 +30,7 @@ const FloatingUFO = ({ object }) => {
         className="animate__animated animate__fadeIn"
         style={imageStyles}
         src={ufoSrc}
+        alt=""
       />
       <FloatingConsoles object={object} />
     </div>

@@ -27,6 +27,7 @@ class TransparentHeroImage extends React.Component {
     return (
       <div style={containerStyles}>
         <img
+          alt="Video Game Hero"
           className={fadeInClass}
           style={imgStyles}
           src={this.props.heroImg}

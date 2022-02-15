@@ -1,8 +1,6 @@
 import React from "react";
 import TransparentHeroImage from "./TransparentHeroImage";
-import Slide from "@mui/material/Slide";
 import FireAnimated from "./FireAnimated";
-import VignetteShadowOverlay from "./VignetteShadowOverlay";
 
 const HeroDisplay = () => {
   const containerStyles = {

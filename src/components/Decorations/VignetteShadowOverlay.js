@@ -32,6 +32,7 @@ const VignetteShadowOverlay = ({ position }) => {
         className="shadow-overlay"
         style={{ ...imageStyles, ...positionStyle }}
         src="./assets/img/vignette.png"
+        alt=""
       />
     </div>
   );

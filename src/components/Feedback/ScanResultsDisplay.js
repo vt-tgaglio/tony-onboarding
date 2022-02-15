@@ -48,7 +48,7 @@ const ScanResultsDisplay = ({ imageSrc, results, object }) => {
           <span>Change</span>
           <span>Image</span>
         </div>
-        <img style={imageStyles} src={uploadedImageSrc} />
+        <img alt="" style={imageStyles} src={uploadedImageSrc} />
       </div>
       <div style={dataContainerStyles}>
         <h1 style={headerStyles}>Here's what we found:</h1>

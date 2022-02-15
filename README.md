@@ -68,3 +68,70 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+# Write your query or mutation here
+
+mutation launchJob {
+launchSingleEngineJob(
+input: { # targetId:""
+uploadUrl: "https://s3.amazonaws.com/stage-api.veritone.com/7682/other/2022/1/2/_/1-25-87_14f6c89d-af7e-4bdc-baa7-edd6994bd471?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQMR5VATUHU3MEGOA%2F20220215%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20220215T013425Z&X-Amz-Expires=86400&X-Amz-Signature=2668e8f024f8df4ae5d3815dd136c2d6fe63f67e495f30025431aa6d334ddd02&X-Amz-SignedHeaders=host"
+engineId: "c0e55cde-340b-44d7-bb42-2e0d65e98255"
+clusterId: "rt-9d7a5d1b-ffe0-4d71-a982-190522cdf272"
+#fields: [
+# {
+# fieldName: "libraryId"
+# fieldValue: "8a0bb949-a751-4f36-bca8-0d66f4df9692"
+#}
+#{ fieldName: "inputIsImage", fieldValue: "true" }
+#]
+}
+) {
+id
+targetId
+status
+}
+}
+
+# Get a job's status
+
+query jobStats {
+job(id:"22020610_k9FS5ZpB0G"){
+id
+status
+tasks{
+records{
+engine{
+id
+name
+}
+status
+failureReason
+failureMessage
+targetId
+}
+}
+}
+}
+
+# Get engine results
+
+query engineResultsFromTDOJobId {
+engineResults(jobId: "22020715_Tb2LaLMX0M") {
+records {
+engineId
+jsondata
+stopOffsetMs
+}
+}
+}
+
+query tdoJobStatus {
+temporalDataObject(id: "1930044222") {
+jobs {
+records {
+id
+status
+}
+}
+}
+}

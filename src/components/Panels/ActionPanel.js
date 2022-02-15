@@ -1,6 +1,4 @@
 import React from "react";
-import { Typography } from "@mui/material";
-import { xboxGreen } from "../../styles/colors";
 
 const ActionPanel = ({ description, isEnabled, image, children }) => {
   const isUserImage = !image.startsWith("./");
@@ -22,6 +20,7 @@ const ActionPanel = ({ description, isEnabled, image, children }) => {
     width: `${isUserImage ? "150px" : "85px"}`,
     borderRadius: `${isUserImage ? "8px" : "0px"}`,
     marginBottom: "25px",
+    filter: "drop-shadow(2px 4px 6px #9bf00b)",
   };
   const descStyles = {
     margin: "0px",
@@ -32,11 +31,12 @@ const ActionPanel = ({ description, isEnabled, image, children }) => {
     borderRadius: "9px",
     textTransform: "uppercase",
     fontWeight: "bold",
+    fontSize: "1.5em",
   };
   return (
     <div style={actionPanelStyles}>
       <div>
-        <img src={image} style={imageStyles} />
+        <img alt={description} src={image} style={imageStyles} />
       </div>
       <p style={descStyles}>{description}</p>
       <div style={{ padding: "10px" }}>{children}</div>

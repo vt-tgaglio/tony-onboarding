@@ -10,10 +10,14 @@ const Header = () => {
   };
   const subHeadingStyles = {
     color: xboxGreen,
-    padding: 0,
-    margin: 0,
-    fontSize: "1.5rem",
-    textShadow: "3px 4px 4px black",
+    margin: "0px",
+    fontSize: "1.7rem",
+    textShadow: "black 3px 4px 4px",
+    background: "black",
+    textTransform: "uppercase",
+    padding: "5px 10px",
+    borderRadius: "5px",
+    fontWeight: "bold",
   };
   const headingStyles = {
     padding: "0px",
@@ -34,15 +38,18 @@ const Header = () => {
     color: xboxGreen,
     textShadow: "0px 0px 11px #79f133",
     fontStyle: "normal",
+    fontFamily: '"Share Tech Mono", monospace',
   };
   const psSpanStyles = {
     color: playstationBlue,
     textShadow: "rgb(0 0 0) 0px 0px 11px",
     // fontStyle: "normal",
+    fontFamily: '"Share Tech Mono", monospace',
+    letterSpacing: "-3px",
   };
   return (
     <div className="header" style={containerStyles}>
-      <p style={subHeadingStyles}>Let's see..... is your photo of</p>
+      <p style={subHeadingStyles}>What game you got?</p>
       <h1 style={headingStyles}>
         <span style={xboxSpanStyles}>XBOX</span> or{" "}
         <span style={psSpanStyles}>PlayStation</span>?

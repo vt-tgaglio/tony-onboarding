@@ -1,5 +1,4 @@
 import React from "react";
-import { xboxGreen } from "../../styles/colors";
 
 const PercentDisplay = ({ percent }) => {
   const percentStyles = {

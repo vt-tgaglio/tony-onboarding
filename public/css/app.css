@@ -90,7 +90,7 @@ html {
   }
 }
 .floating-console {
-  animation: wobble 5s ease-in-out infinite;
+  animation: wobble 15s ease-in-out infinite;
 }
 @keyframes wobble {
   0% {
@@ -102,4 +102,24 @@ html {
   100% {
     transform: rotateX(0deg);
   }
+}
+
+.engine-art {
+  transition: transform 0.5s ease-in-out, filter 0.5s ease-in-out;
+  filter: drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.4));
+}
+.engine-panel-art .engine-art:nth-of-type(1) {
+  transform: rotate(359deg);
+}
+.engine-panel:hover .engine-panel-art .engine-art:nth-of-type(1) {
+  transform: rotate(340deg);
+  filter: drop-shadow(2px 4px 8px #9bf00b);
+}
+.engine-panel:hover .engine-panel-art .engine-art:nth-of-type(2) {
+  transform: translate(0px, -30px);
+  filter: drop-shadow(2px 4px 8px #9bf00b);
+}
+.engine-panel:hover .engine-panel-art .engine-art:nth-of-type(3) {
+  transform: rotate(20deg);
+  filter: drop-shadow(2px 4px 8px #9bf00b);
 }

@@ -4,7 +4,7 @@ const FloatingConsoles = ({ object }) => {
   if (!object) return null;
   const renderConsoles = () => {
     const style = {
-      width: "150px",
+      width: "200px",
       position: "absolute",
       top: "400px",
     };
