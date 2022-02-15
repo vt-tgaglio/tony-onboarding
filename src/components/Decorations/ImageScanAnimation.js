@@ -2,11 +2,12 @@ import React from "react";
 import { initialIsScanning, placeholderUploadedImageSrc } from "../../config";
 import { xboxGreen } from "../../styles/colors";
 
-const ImageScanAnimation = ({ imageSrc }) => {
+const ImageScanAnimation = ({ imageSrc, imageOverrideStyles = {} }) => {
   const imageStyles = {
     maxWidth: "120px",
     borderRadius: "20px",
     border: "2px solid" + xboxGreen,
+    ...imageOverrideStyles,
   };
   const containerStyles = {
     display: "flex",

@@ -1,3 +1,5 @@
+import { API_MOCK_JOB_STATUS } from "../../config";
+
 export const mockAudioCreateJobResponse = `{
     "data": {
       "launchSingleEngineJob": {
@@ -24,7 +26,7 @@ export const mockAudioEngineResultsResponse = `{
                 "stopTimeMs": 1290,
                 "words": [
                   {
-                    "word": "This",
+                    "word": "The",
                     "confidence": 1,
                     "bestPath": true,
                     "utteranceLength": 1
@@ -179,7 +181,7 @@ export const mockAudioTdoStatusResponse = `
         "records": [
           {
             "id": "22020714_9AUuWtC4id",
-            "status": "complete"
+            "status": "${API_MOCK_JOB_STATUS}"
           }
         ]
       }

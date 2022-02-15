@@ -34,7 +34,6 @@ const Container = (props) => {
     const isTranscribeSelected = props.engine === "transcribe";
     return (
       <>
-        <div>choose an engine</div>
         {!isRecognitionSelected && !isTranscribeSelected && (
           <EngineSelector onEngineChange={props.onEngineChange} />
         )}
@@ -44,7 +43,9 @@ const Container = (props) => {
     );
   };
   const renderTranscriptionEngineUI = () => {
-    return <TranscribeContainer file={props.file} />;
+    return (
+      <TranscribeContainer file={props.file} setObject={props.setObject} />
+    );
   };
   const renderRecognitionEngineUI = () => {
     return (

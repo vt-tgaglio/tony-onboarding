@@ -6,23 +6,31 @@ import {
   getAudioJobStatus,
   parseAudioJobResults,
 } from "../../api/transcription";
-import { API_POLL_FREQUENCY, API_TIMEOUT_DURATION } from "../../config";
+import {
+  API_POLL_FREQUENCY,
+  API_TIMEOUT_DURATION,
+  initialResults,
+} from "../../config";
 import { formContainerStyles } from "../../styles/containers";
 import TranscribeButton from "../Buttons/TranscribeButton";
 import UploadButton from "../Buttons/UploadButton";
 import Header from "../Decorations/Header";
 import AudioPlayer from "../Feedback/AudioPlayer";
+import TranscriptLoader from "../Feedback/TranscriptLoader";
 import TranscriptResultsDisplay from "../Feedback/TranscriptResultsDisplay";
+import TranscriptTimeoutError from "../Feedback/TranscriptTimeoutError";
 import ActionPanel from "../Panels/ActionPanel";
 
-const TranscribeContainer = ({ file }) => {
+const TranscribeContainer = ({ file, setObject }) => {
   const [jobId, setJobId] = useState(null);
   const [tdoId, setTdoId] = useState(null);
   const [isRunning, setIsRunning] = useState(false);
   const [isFinished, setIsFinished] = useState(false);
-  const [results, setResults] = useState(null);
+  const [isReqTimedOut, setIsReqTimedOut] = useState(false);
+  const [results, setResults] = useState(initialResults);
+  const [transcribeDuration, setTranscribeDuration] = useState(0);
 
-  const initiateTranscribeJob = (file) => {
+  const initiateTranscribeJob = () => {
     createAudioJob(file).then((res) => {
       const { id, targetId } = res.data.launchSingleEngineJob;
 
@@ -45,13 +53,23 @@ const TranscribeContainer = ({ file }) => {
               parseAudioJobResults(res)
             );
             setIsFinished(true);
-            setResults(parsedResults);
+            setTranscribeDuration(counter);
+            setResults({
+              ...parsedResults,
+              tdoIdQuery,
+              jobIdQuery,
+              transcribeDuration: counter,
+            });
+            setObject(parsedResults.found);
           });
         } else if (counter >= API_TIMEOUT_DURATION) {
           clearInterval(poll);
           console.log(
             "The API engine did not finish before timeout. Displaying error."
           );
+          setIsReqTimedOut(true);
+          setIsRunning(false);
+          setIsFinished(false);
         }
       });
     }, API_POLL_FREQUENCY);
@@ -63,7 +81,7 @@ const TranscribeContainer = ({ file }) => {
         <TranscribeButton
           onClick={() => {
             console.log("scanning audio....");
-            initiateTranscribeJob(file);
+            initiateTranscribeJob();
           }}
         />
       );
@@ -80,10 +98,23 @@ const TranscribeContainer = ({ file }) => {
           isEnabled
           image="./add-audio.png"
         >
-          {file.getUrl ? <AudioPlayer audioSource={file.getUrl} /> : null}
-          {renderActionButton()}
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            {file.getUrl ? <AudioPlayer audioSource={file.getUrl} /> : null}
+            {renderActionButton()}
+          </div>
         </ActionPanel>
+        {isRunning && !isFinished && !isReqTimedOut ? (
+          <TranscriptLoader />
+        ) : null}
         {isFinished ? <TranscriptResultsDisplay results={results} /> : null}
+        {isReqTimedOut && !isRunning ? <TranscriptTimeoutError /> : null}
       </div>
     </>
   );

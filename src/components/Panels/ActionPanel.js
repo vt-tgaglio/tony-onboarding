@@ -32,6 +32,7 @@ const ActionPanel = ({ description, isEnabled, image, children }) => {
     textTransform: "uppercase",
     fontWeight: "bold",
     fontSize: "1.5em",
+    textShadow: "1px 1px 8px rgb(11 240 180)",
   };
   return (
     <div style={actionPanelStyles}>

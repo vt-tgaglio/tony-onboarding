@@ -18,6 +18,7 @@ const Header = () => {
     padding: "5px 10px",
     borderRadius: "5px",
     fontWeight: "bold",
+    textShadow: "1px 1px 8px rgb(11 240 180)",
   };
   const headingStyles = {
     padding: "0px",
