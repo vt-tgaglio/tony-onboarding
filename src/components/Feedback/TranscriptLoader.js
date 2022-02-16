@@ -25,7 +25,11 @@ const TranscriptLoader = () => {
     textShadow: "1px 1px 8px rgb(11 240 180)",
   };
   return (
-    <div className="transcript-loader" style={containerStyles}>
+    <div
+      className="transcript-loader"
+      data-test-id="transcript-loader"
+      style={containerStyles}
+    >
       <ImageScanAnimation
         imageSrc="./assets/img/waveform.webp"
         imageOverrideStyles={imageWaveformStyles}

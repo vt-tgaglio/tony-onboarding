@@ -69,6 +69,8 @@ const ScanningPanel = (props) => {
     <>
       <Header />
       <div
+        className="scanning-panel"
+        data-test-id="scanning-panel"
         style={{
           ...formContainerStyles,
           justifyContent: "center",

@@ -25,12 +25,16 @@ const FloatingUFO = ({ object }) => {
     return null;
   }
   return (
-    <div className="floating-ufo" style={containerStyles}>
+    <div
+      className="floating-ufo"
+      data-test-id="floating-ufo"
+      style={containerStyles}
+    >
       <img
         className="animate__animated animate__fadeIn"
         style={imageStyles}
         src={ufoSrc}
-        alt=""
+        alt="Alien"
       />
       <FloatingConsoles object={object} />
     </div>

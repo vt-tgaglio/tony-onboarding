@@ -24,7 +24,11 @@ const HeroDisplay = () => {
     justifyContent: "space-between",
   };
   return (
-    <div className="hero-display" style={containerStyles}>
+    <div
+      className="hero-display"
+      data-test-id="hero-display"
+      style={containerStyles}
+    >
       <TransparentHeroImage
         position="left"
         heroImg="./assets/img/xbox-character.png"

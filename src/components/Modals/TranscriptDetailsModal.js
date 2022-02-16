@@ -7,6 +7,7 @@ import {
   VERITONE_ENVIRONMENT_GQL_URL,
 } from "../../config";
 import { xboxGreen } from "../../styles/colors";
+import UIDataSetModal from "./UIDataSetModal";
 import UIModal from "./UIModal";
 
 const TranscriptDetailsModal = ({ results, isOpen, handleClose }) => {
@@ -57,27 +58,34 @@ const TranscriptDetailsModal = ({ results, isOpen, handleClose }) => {
       </div>
     );
   };
+  const createData = (key, value) => {
+    return { key: key, value: value };
+  };
+  const dataSet = [
+    createData("Transcription Engine ID", ENGINE_TRANSCRIPTION_ID),
+    createData(
+      "Mock Response Enabled?",
+      enableMockApiResponse ? "TRUE" : "FALSE"
+    ),
+    createData("Transcribed Text", `"${results.text}"`),
+    createData("Matched Console", results.found),
+    createData("Total job time", getDuration(results.transcribeDuration)),
+    createData("Engine Name*", ENGINE_NAME_TRANSCRIPTION),
+    createData("Cluster ID*", CLUSTER_ID),
+    createData("Veritone Platform*", "STAGE"),
+    createData("Veritone Endpoint*", VERITONE_ENVIRONMENT_GQL_URL),
+  ];
   return (
-    <UIModal isOpen={isOpen} handleClose={handleClose}>
-      <div style={{ width: "100%" }}>
-        <h1 style={headerStyles}>aiWARE Engine Results</h1>
-        <div style={rowContainerStyles}>
-          {row(
-            "Mock Response Enabled?",
-            enableMockApiResponse ? "TRUE" : "FALSE"
-          )}
-          {row("Transcribed Text", `"${results.text}"`)}
-          {row("Matched Console", results.found)}
-          {row("Total job time", getDuration(results.transcribeDuration))}
-          {row("Engine ID*", ENGINE_TRANSCRIPTION_ID)}
-          {row("Engine Name*", ENGINE_NAME_TRANSCRIPTION)}
-          {row("Cluster ID*", CLUSTER_ID)}
-          {row("Veritone Platform*", "STAGE")}
-          {row("Veritone Endpoint*", VERITONE_ENVIRONMENT_GQL_URL)}
-          {disclaimer()}
-        </div>
-      </div>
-    </UIModal>
+    <UIDataSetModal
+      className="transcription-details-modal"
+      testId="transcription-details-modal"
+      isOpen={isOpen}
+      dataSet={dataSet}
+      headerText="aiWARE Engine Results"
+      handleClose={handleClose}
+    >
+      {disclaimer()}
+    </UIDataSetModal>
   );
 };
 export default TranscriptDetailsModal;

@@ -1,14 +1,14 @@
+// -----------------------------------------------------------------------
 // Configuration file for tony-onboarding
-// --------------------------------------
-//
-export const token = "9774fd15-76d8-4bb6-a5e2-1e7a21c57e54"; // AiWARE.js auth token
-export const placeholderUploadedImageSrc =
-  "https://s3.amazonaws.com/stage-api.veritone.com/7682/other/2022/1/4/_/13-0-395_0b7bf680-e9f8-4420-86dc-40037b3f4a90?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQMR5VATUHU3MEGOA%2F20220210%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20220210T135800Z&X-Amz-Expires=86400&X-Amz-Signature=f118c3cbf39c4293556b456cf8ca2762f1b398177b8a4de16960ac43e42ff397&X-Amz-SignedHeaders=host";
+import { userToken } from "./token"; // App won't work without a valid Veritone Session Id
+// -----------------------------------------------------------------------
+export const token = userToken; // AiWARE.js auth token
+export const placeholderUploadedImageSrc = "https://i.imgur.com/jQE8C5B.png";
 export const enableAutoUploadClicks = true; // When true, Importer auto clicks dimiss importer panel after upload
 // Recognition Configs
 export const mockProgressSpeed = 250; // Higher value, slower progress time
-export const initialIsScanning = false; // When true, app loads into scanning view
-export const initialIsDone = false; // When true, app loads into done view
+export const initialIsScanning = false; // When true, Recognition Engine loads into scanning view
+export const initialIsDone = false; // When true, Recognition Engine loads into done view
 export const initialObjectDetected = null;
 // -----------------------------------------------------------------------
 // Transcription Configs
@@ -21,6 +21,7 @@ export const initialResults = {
   jobIdQuery: "",
 };
 export const MATCH_WORDS = ["xbox", "playstation"];
+export const TRANSCRIPT_FILE_TYPE_ALLOWED = ["audio/x-m4a", "audio/mpeg"];
 // -----------------------------------------------------------------------
 // API configs
 export const VERITONE_ENVIRONMENT_GQL_URL =
@@ -33,7 +34,7 @@ export const API_POLL_FREQUENCY = 3500; // How freqeunt the API calls to check s
 export const API_MOCK_JOB_STATUS = "complete";
 export const initialFileValue = { url: "testurl", file: { name: "xbox1.jpg" } };
 export const initialClusterId = "rt-9d7a5d1b-ffe0-4d71-a982-190522cdf272"; // uses STAGE cluster
-export const initialRecognitionEngineId = ""; // None are working lol
+export const initialRecognitionEngineId = ""; // None are working yet lol
 export const initialTranscriptionEngineId =
   "c0e55cde-340b-44d7-bb42-2e0d65e98255";
 export const ENGINE_NAME_TRANSCRIPTION =

@@ -19,7 +19,11 @@ const PercentDisplay = ({ percent }) => {
     padding: "5px",
   };
   return (
-    <div style={percentStyles}>
+    <div
+      className="percent-display"
+      data-test-id="percent-display"
+      style={percentStyles}
+    >
       {percent}
       <span style={glyphStyles}>%</span>
     </div>

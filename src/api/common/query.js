@@ -64,7 +64,7 @@ export const postGraphQlQuery = async (query) => {
   try {
     const response = await window.gql(query.queryString);
 
-    console.log("QUERY SENT", response);
+    console.log("Response from GraphQL:", response);
     return response;
   } catch (err) {
     console.log(err);

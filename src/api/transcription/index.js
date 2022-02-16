@@ -1,4 +1,8 @@
-import { enableMockApiResponse, MATCH_WORDS } from "../../config";
+import {
+  enableMockApiResponse,
+  MATCH_WORDS,
+  TRANSCRIPT_FILE_TYPE_ALLOWED,
+} from "../../config";
 import { CLUSTER_ID } from "../common/clusterId";
 import { ENGINE_TRANSCRIPTION_ID } from "../common/engineId";
 import {
@@ -25,6 +29,10 @@ export const createAudioJob = async (file) => {
     `);
   console.log("File provided:");
   console.log(file);
+  const { type } = file.file;
+  if (!TRANSCRIPT_FILE_TYPE_ALLOWED.includes(type)) {
+    return new Error("File type not allowed");
+  }
   if (enableMockApiResponse) {
     return JSON.parse(mockAudioCreateJobResponse);
   } else {

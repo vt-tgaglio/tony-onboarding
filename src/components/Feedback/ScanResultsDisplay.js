@@ -39,7 +39,11 @@ const ScanResultsDisplay = ({ imageSrc, results, object }) => {
     window.location.reload(false);
   };
   return (
-    <div style={componentContainerStyles}>
+    <div
+      className="scan-results-display"
+      data-test-id="scan-results-display"
+      style={componentContainerStyles}
+    >
       <div
         onClick={handleChangeImageClick}
         className="scan-results-image-container"

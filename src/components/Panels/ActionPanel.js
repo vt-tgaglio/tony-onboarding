@@ -1,6 +1,13 @@
 import React from "react";
 
-const ActionPanel = ({ description, isEnabled, image, children }) => {
+const ActionPanel = ({
+  description,
+  isEnabled,
+  image,
+  children,
+  className = "",
+  testId = "",
+}) => {
   const isUserImage = !image.startsWith("./");
   const actionPanelStyles = {
     display: "flex",
@@ -35,7 +42,7 @@ const ActionPanel = ({ description, isEnabled, image, children }) => {
     textShadow: "1px 1px 8px rgb(11 240 180)",
   };
   return (
-    <div style={actionPanelStyles}>
+    <div className={className} data-test-id={testId} style={actionPanelStyles}>
       <div>
         <img alt={description} src={image} style={imageStyles} />
       </div>

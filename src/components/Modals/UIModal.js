@@ -15,9 +15,11 @@ export default function UIModal({
   children,
   handleClose = () => {},
   isOpen = true,
+  className = "",
+  testId = "ui-modal",
 }) {
   return (
-    <div>
+    <div className={className} data-test-id={testId}>
       <Modal
         open={isOpen}
         onClose={() => handleClose()}

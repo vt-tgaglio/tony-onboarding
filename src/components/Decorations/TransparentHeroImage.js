@@ -25,7 +25,11 @@ class TransparentHeroImage extends React.Component {
       fadeInClass += ` animate__delay-${this.props.delay}s`;
     }
     return (
-      <div style={containerStyles}>
+      <div
+        className="transparent-hero-image"
+        data-test-id="transparent-hero-image"
+        style={containerStyles}
+      >
         <img
           alt="Video Game Hero"
           className={fadeInClass}

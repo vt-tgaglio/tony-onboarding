@@ -1,12 +1,17 @@
+import React, { useState } from "react";
 import Backdrop from "../Decorations/Backdrop";
-import React from "react";
 import HeroDisplay from "../Decorations/HeroDisplay";
 import RecognitionContainer from "./RecognitionContainer";
 import ScanningPanel from "../Panels/ScanningPanel";
 import EngineSelector from "./EngineSelector";
 import TranscribeContainer from "./TranscribeContainer";
+import ConfigDetailsModal from "../Modals/ConfigDetailsModal";
+import { xboxGreen } from "../../styles/colors";
+import ConfigButton from "../Buttons/ConfigButton";
 
 const Container = (props) => {
+  const [isConfigModalOpen, setIsConfigModalOpen] = useState(false);
+
   const containerStyles = {
     height: "calc(100vh - 55px)",
     background: "url(./assets/img/xbox-playstation-background.png)",
@@ -68,7 +73,8 @@ const Container = (props) => {
   };
   return (
     <div
-      className="moving-background"
+      className="app-authed-container moving-background"
+      data-test-id="app-authed-container"
       onMouseMove={handleMouseMove}
       style={containerStyles}
     >
@@ -76,6 +82,12 @@ const Container = (props) => {
 
       <HeroDisplay />
       <Backdrop object={props.object} />
+
+      <ConfigButton onClick={() => setIsConfigModalOpen(true)} />
+      <ConfigDetailsModal
+        isOpen={isConfigModalOpen}
+        handleClose={() => setIsConfigModalOpen(false)}
+      />
     </div>
   );
 };

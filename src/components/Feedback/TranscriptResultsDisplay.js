@@ -94,7 +94,11 @@ const TranscriptResultsDisplay = ({ results }) => {
     );
   };
   return (
-    <div style={containerStyles}>
+    <div
+      className="transcript-results-display"
+      data-test-id="transcript-results-display"
+      style={containerStyles}
+    >
       <h1>Here's what we found:</h1>
       {renderFoundObject()}
       <h1 style={{ marginBottom: 0 }}>Audio Transcript:</h1>

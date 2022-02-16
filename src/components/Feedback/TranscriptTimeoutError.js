@@ -26,7 +26,11 @@ const TranscriptTimeoutError = () => {
     fontWeight: "bold",
   };
   return (
-    <div style={containerStyles}>
+    <div
+      className="transcript-timeout-error"
+      data-test-id="transcript-timeout-error"
+      style={containerStyles}
+    >
       <img style={imageStyles} alt="" src="./assets/img/timeout-glyph.png" />
       <h1 style={headerStyle}>Request Timed out.</h1>
       <p style={msgStyle}>Open Dev Console to reveal details</p>

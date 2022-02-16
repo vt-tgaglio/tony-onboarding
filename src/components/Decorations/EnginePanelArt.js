@@ -22,7 +22,11 @@ const EnginePanelArt = ({ engine }) => {
     return null;
   }
   return (
-    <div className="engine-panel-art" style={containerStyles}>
+    <div
+      className="engine-panel-art"
+      data-test-id="engine-panel-art"
+      style={containerStyles}
+    >
       <img
         className="animate__animated animate__fadeIn engine-art"
         style={artStyles}

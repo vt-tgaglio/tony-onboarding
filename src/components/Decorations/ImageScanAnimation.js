@@ -29,7 +29,11 @@ const ImageScanAnimation = ({ imageSrc, imageOverrideStyles = {} }) => {
     ? placeholderUploadedImageSrc
     : imageSrc;
   return (
-    <div style={containerStyles}>
+    <div
+      className="image-scan-animation"
+      data-test-id="image-scan-animation"
+      style={containerStyles}
+    >
       <img
         className="magnify-glyph"
         style={animatedMagnifyStyes}

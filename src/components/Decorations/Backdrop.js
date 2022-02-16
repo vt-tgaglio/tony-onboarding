@@ -16,7 +16,11 @@ const Backdrop = ({ object }) => {
     zIndex: 1,
   };
   return (
-    <div className="backdrop-container" style={containerStyles}>
+    <div
+      className="backdrop-container"
+      data-test-id="backdrop-container"
+      style={containerStyles}
+    >
       <VignetteShadowOverlay position="left" />
       <VignetteShadowOverlay position="right" />
       <FloatingUFO object={object} />

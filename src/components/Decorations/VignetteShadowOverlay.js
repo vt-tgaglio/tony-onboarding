@@ -27,7 +27,11 @@ const VignetteShadowOverlay = ({ position }) => {
   }
 
   return (
-    <div className="shadow-overlay-container" style={containerStyles}>
+    <div
+      className="shadow-overlay-container"
+      data-test-id="shadow-overlay-container"
+      style={containerStyles}
+    >
       <img
         className="shadow-overlay"
         style={{ ...imageStyles, ...positionStyle }}

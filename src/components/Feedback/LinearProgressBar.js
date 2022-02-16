@@ -19,7 +19,11 @@ export default function LinearProgressBar({ progress }) {
     padding: "10px",
   };
   return (
-    <div style={progressBarContainerStyles}>
+    <div
+      className="linear-progress-bar"
+      data-test-id="linear-progress-bar"
+      style={progressBarContainerStyles}
+    >
       <div style={progressBarStyles}>
         <PercentDisplay percent={progress} />
       </div>

@@ -10,12 +10,17 @@ const RecognitionContainer = (props) => {
     <>
       <Header />
       <div
-        className="form-container animate__animated animate__fadeIn animate__delay1s"
+        className="form-container recognition-engine-container animate__animated animate__fadeIn animate__delay1s"
+        data-test-id="recognition-engine-container"
         style={formContainerStyles}
       >
         <ActionPanel
           isEnabled={true}
-          image={props.file.getUrl ? props.file.getUrl : "./add-image.png"}
+          className="upload-image-panel"
+          testId="upload-image-panel"
+          image={
+            props.file.getUrl ? props.file.getUrl : "./assets/img/add-image.png"
+          }
           description={
             props.file.getUrl ? "Image uploaded" : "Detect a Game Console"
           }
@@ -28,6 +33,8 @@ const RecognitionContainer = (props) => {
           isEnabled={props.file.getUrl}
           image="./palm-scan.png"
           description="What could it be?"
+          className="scan-image-panel"
+          testId="scan-image-panel"
         >
           <ScanButton
             isEnabled={!!props.file.getUrl}

@@ -4,7 +4,8 @@
 }
 body,
 html {
-  background-color: black;
+  background-color: black !important;
+  background: black !important;
 }
 
 [data-test="appbarTitle"] {
@@ -122,4 +123,23 @@ html {
 .engine-panel:hover .engine-panel-art .engine-art:nth-of-type(3) {
   transform: rotate(20deg);
   filter: drop-shadow(2px 4px 8px #9bf00b);
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: black;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #9bf00b;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #5f9207;
 }

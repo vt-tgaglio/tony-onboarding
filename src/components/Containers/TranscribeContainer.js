@@ -10,12 +10,14 @@ import {
   API_POLL_FREQUENCY,
   API_TIMEOUT_DURATION,
   initialResults,
+  TRANSCRIPT_FILE_TYPE_ALLOWED,
 } from "../../config";
 import { formContainerStyles } from "../../styles/containers";
 import TranscribeButton from "../Buttons/TranscribeButton";
 import UploadButton from "../Buttons/UploadButton";
 import Header from "../Decorations/Header";
 import AudioPlayer from "../Feedback/AudioPlayer";
+import InvalidFileTypeError from "../Feedback/InvalidFileTypeError";
 import TranscriptLoader from "../Feedback/TranscriptLoader";
 import TranscriptResultsDisplay from "../Feedback/TranscriptResultsDisplay";
 import TranscriptTimeoutError from "../Feedback/TranscriptTimeoutError";
@@ -29,16 +31,30 @@ const TranscribeContainer = ({ file, setObject }) => {
   const [isReqTimedOut, setIsReqTimedOut] = useState(false);
   const [results, setResults] = useState(initialResults);
   const [transcribeDuration, setTranscribeDuration] = useState(0);
+  const [isInvalidFileType, setIsInvalidFileType] = useState(false);
 
   const initiateTranscribeJob = () => {
-    createAudioJob(file).then((res) => {
-      const { id, targetId } = res.data.launchSingleEngineJob;
+    const { type } = file.file;
+    if (!TRANSCRIPT_FILE_TYPE_ALLOWED.includes(type)) {
+      setIsInvalidFileType(true);
+      return console.warn(`
+      tony-onboarding:
+      
+      Invalid file type used for Transcription Engine.
+      `);
+    }
+    createAudioJob(file)
+      .then((res) => {
+        const { id, targetId } = res.data.launchSingleEngineJob;
 
-      setJobId(id);
-      setTdoId(targetId);
-      setIsRunning(true);
-      pollTranscribeJobStatus(targetId, id);
-    });
+        setJobId(id);
+        setTdoId(targetId);
+        setIsRunning(true);
+        pollTranscribeJobStatus(targetId, id);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
   const pollTranscribeJobStatus = (tdoIdQuery, jobIdQuery) => {
     let counter = 0;
@@ -92,11 +108,17 @@ const TranscribeContainer = ({ file, setObject }) => {
   return (
     <>
       <Header />
-      <div style={formContainerStyles}>
+      <div
+        className="transcribe-container"
+        data-test-id="transcribe-container"
+        style={formContainerStyles}
+      >
         <ActionPanel
+          className="upload-audio-panel"
+          testId="upload-audio-panel"
           description={file.getUrl ? file.file.name : "Detect Game Console"}
           isEnabled
-          image="./add-audio.png"
+          image="./assets/img/add-audio.png"
         >
           <div
             style={{
@@ -107,7 +129,7 @@ const TranscribeContainer = ({ file, setObject }) => {
             }}
           >
             {file.getUrl ? <AudioPlayer audioSource={file.getUrl} /> : null}
-            {renderActionButton()}
+            {!isFinished && !isRunning && renderActionButton()}
           </div>
         </ActionPanel>
         {isRunning && !isFinished && !isReqTimedOut ? (
@@ -115,6 +137,7 @@ const TranscribeContainer = ({ file, setObject }) => {
         ) : null}
         {isFinished ? <TranscriptResultsDisplay results={results} /> : null}
         {isReqTimedOut && !isRunning ? <TranscriptTimeoutError /> : null}
+        {isInvalidFileType && <InvalidFileTypeError />}
       </div>
     </>
   );

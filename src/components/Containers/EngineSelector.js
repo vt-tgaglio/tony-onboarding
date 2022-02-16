@@ -7,7 +7,11 @@ const EngineSelector = ({ onEngineChange }) => {
   return (
     <>
       <Header />
-      <div style={formContainerStyles}>
+      <div
+        className="engine-selector"
+        data-test-id="engine-selector"
+        style={formContainerStyles}
+      >
         <EnginePanel
           engine="transcribe"
           actionLabel="Transcription"

@@ -14,6 +14,7 @@ const FloatingConsoles = ({ object }) => {
           className="floating-console"
           style={{ ...style, left: "80px", top: "300px" }}
           src="./assets/img/xbox-transparent.png"
+          alt="Xbox"
         />
       );
     } else if (object === "playstation") {
@@ -22,12 +23,17 @@ const FloatingConsoles = ({ object }) => {
           className="floating-console"
           style={{ ...style, right: "80px" }}
           src="./assets/img/playstation-transparent.png"
+          alt="PlayStation"
         />
       );
     }
     return null;
   };
-  return <div>{renderConsoles()}</div>;
+  return (
+    <div className="floating-consoles" data-test-id="floating-consoles">
+      {renderConsoles()}
+    </div>
+  );
 };
 
 export default FloatingConsoles;

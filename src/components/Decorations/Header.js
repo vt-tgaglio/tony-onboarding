@@ -49,9 +49,11 @@ const Header = () => {
     letterSpacing: "-3px",
   };
   return (
-    <div className="header" style={containerStyles}>
-      <p style={subHeadingStyles}>What game you got?</p>
-      <h1 style={headingStyles}>
+    <div className="header" data-test-id="header" style={containerStyles}>
+      <p className="header-subtitle" style={subHeadingStyles}>
+        What game you got?
+      </p>
+      <h1 className="header-title" style={headingStyles}>
         <span style={xboxSpanStyles}>XBOX</span> or{" "}
         <span style={psSpanStyles}>PlayStation</span>?
       </h1>

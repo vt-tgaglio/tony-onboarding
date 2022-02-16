@@ -36,7 +36,11 @@ const EnginePanel = ({
     padding: "5px 10px",
   };
   return (
-    <div className="engine-panel" style={enginePanelStyles}>
+    <div
+      className="engine-panel"
+      data-test-id="engine-panel"
+      style={enginePanelStyles}
+    >
       <EnginePanelArt engine={engine} />
       <h1 style={engineLabelStyles}>{actionLabel}</h1>
       <h2 style={descriptionStyles}>{descriptionText}</h2>
