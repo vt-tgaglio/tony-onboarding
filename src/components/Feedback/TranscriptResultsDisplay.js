@@ -39,6 +39,7 @@ const TranscriptResultsDisplay = ({ results, isTestMode }) => {
     } else if (found === "xbox") {
       return (
         <div
+          data-test-id="transcribe-found-object"
           style={{
             ...objectLabelStyles,
             color: xboxGreen,
@@ -51,6 +52,7 @@ const TranscriptResultsDisplay = ({ results, isTestMode }) => {
     } else if (found === "playstation") {
       return (
         <div
+          data-test-id="transcribe-found-object"
           style={{
             ...objectLabelStyles,
             color: playstationBlue,
