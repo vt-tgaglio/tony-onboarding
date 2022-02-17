@@ -18,6 +18,14 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 4. Navigate your browser to localhost:3000
 
+## How to run tests after install
+
+1. Open `/src/token.js` and set your aiware session token, save the file
+
+2. Run `npm run cypress`
+
+3. Choose a spec to run from the Cypress window
+
 ## How to use the web app
 
 The main screen presents a panel with two engine selections, either Transcription or Recognition.
