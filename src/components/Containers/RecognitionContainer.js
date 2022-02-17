@@ -22,7 +22,7 @@ const RecognitionContainer = (props) => {
             props.file.getUrl ? props.file.getUrl : "./assets/img/add-image.png"
           }
           description={
-            props.file.getUrl ? "Image uploaded" : "Detect a Game Console"
+            props.file.getUrl ? props.file.file.name : "Detect a Game Console"
           }
         >
           <UploadButton

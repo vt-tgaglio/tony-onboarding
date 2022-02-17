@@ -15,6 +15,7 @@ const FloatingConsoles = ({ object }) => {
           style={{ ...style, left: "80px", top: "300px" }}
           src="./assets/img/xbox-transparent.png"
           alt="Xbox"
+          data-test-id="floating-xbox"
         />
       );
     } else if (object === "playstation") {
@@ -24,6 +25,7 @@ const FloatingConsoles = ({ object }) => {
           style={{ ...style, right: "80px" }}
           src="./assets/img/playstation-transparent.png"
           alt="PlayStation"
+          data-test-id="floating-playstation"
         />
       );
     }

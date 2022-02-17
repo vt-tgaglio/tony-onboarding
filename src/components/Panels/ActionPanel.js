@@ -44,10 +44,19 @@ const ActionPanel = ({
   return (
     <div className={className} data-test-id={testId} style={actionPanelStyles}>
       <div>
-        <img alt={description} src={image} style={imageStyles} />
+        <img
+          data-test-id="action-panel-image"
+          alt={description}
+          src={image}
+          style={imageStyles}
+        />
       </div>
-      <p style={descStyles}>{description}</p>
-      <div style={{ padding: "10px" }}>{children}</div>
+      <p data-test-id="action-panel-description" style={descStyles}>
+        {description}
+      </p>
+      <div data-test-id="action-panel-children" style={{ padding: "10px" }}>
+        {children}
+      </div>
     </div>
   );
 };

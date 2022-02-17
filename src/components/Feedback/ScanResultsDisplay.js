@@ -57,6 +57,7 @@ const ScanResultsDisplay = ({ imageSrc, results, object }) => {
       <div style={dataContainerStyles}>
         <h1 style={headerStyles}>Here's what we found:</h1>
         <span
+          data-test-id="scanner-result-object"
           className="animate__animated animate__fadeIn"
           style={objectStyles}
         >

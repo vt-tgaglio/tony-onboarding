@@ -3,7 +3,7 @@ import { playstationBlue, xboxGreen } from "../../styles/colors";
 import TranscriptDetailsModal from "../Modals/TranscriptDetailsModal";
 import UIModal from "../Modals/UIModal";
 
-const TranscriptResultsDisplay = ({ results }) => {
+const TranscriptResultsDisplay = ({ results, isTestMode }) => {
   const [isDetailsOpen, setIsDetailsOpen] = useState(false);
   const containerStyles = {
     display: "flex",
@@ -108,6 +108,7 @@ const TranscriptResultsDisplay = ({ results }) => {
         isOpen={isDetailsOpen}
         handleClose={() => setIsDetailsOpen(false)}
         results={results}
+        isTestMode={isTestMode}
       />
     </div>
   );

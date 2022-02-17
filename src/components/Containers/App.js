@@ -10,7 +10,6 @@ import {
   initialObjectDetected,
   initialEngine,
   VERITONE_ENVIRONMENT_GQL_URL,
-  testModeFile,
   testModeImageFile,
   testModeAudioFile,
 } from "../../config";

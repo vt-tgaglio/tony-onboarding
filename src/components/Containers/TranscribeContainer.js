@@ -141,7 +141,9 @@ const TranscribeContainer = ({ file, setObject, isTestMode, setTestFile }) => {
         {isRunning && !isFinished && !isReqTimedOut ? (
           <TranscriptLoader />
         ) : null}
-        {isFinished ? <TranscriptResultsDisplay results={results} /> : null}
+        {isFinished ? (
+          <TranscriptResultsDisplay results={results} isTestMode={isTestMode} />
+        ) : null}
         {isReqTimedOut && !isRunning ? <TranscriptTimeoutError /> : null}
         {isInvalidFileType && <InvalidFileTypeError />}
       </div>

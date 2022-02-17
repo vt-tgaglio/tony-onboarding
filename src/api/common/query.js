@@ -2,6 +2,7 @@
 // Thank you Mert!
 
 import { token, VERITONE_ENVIRONMENT_GQL_URL } from "../../config";
+import { CLUSTER_ID } from "./clusterId";
 import { ENGINE_TRANSCRIPTION_ID } from "./engineId";
 
 const headers = {
@@ -19,7 +20,7 @@ export const launchSingleEngineJobMutation = (uploadUrl) => {
           input: {
             uploadUrl: "${uploadUrl}"
             engineId: "${ENGINE_TRANSCRIPTION_ID}"
-            clusterId: "rt-9d7a5d1b-ffe0-4d71-a982-190522cdf272"
+            clusterId: "${CLUSTER_ID}"
           }
         ) {
           id
