@@ -32,7 +32,7 @@ const UIDataSetModal = ({
     textAlign: "center",
     color: xboxGreen,
   };
-  const row = (key, value) => {
+  const row = (key, value, index) => {
     const keyStyles = {
       fontWeight: "bold",
     };
@@ -45,24 +45,26 @@ const UIDataSetModal = ({
       val = value;
     }
     return (
-      <div style={rowStyles}>
+      <div key={`${key}-${index}`} style={rowStyles}>
         <p style={keyStyles}>{key}</p>
         <p>{val}</p>
       </div>
     );
   };
   const renderDataSet = () => {
-    return dataSet.map((item) => row(item.key, item.value));
+    return dataSet.map((item, index) => row(item.key, item.value, index));
   };
   return (
     <UIModal
-      className={className}
+      className={`ui-dataset-modal ${className}`}
       testId={testId}
       isOpen={isOpen}
       handleClose={handleClose}
     >
       <div style={{ width: "100%" }}>
-        <h1 style={headerStyles}>{headerText}</h1>
+        <h1 className={`ui-dataset-modal-header`} style={headerStyles}>
+          {headerText}
+        </h1>
         <div style={rowContainerStyles}>{renderDataSet()}</div>
         {children}
       </div>

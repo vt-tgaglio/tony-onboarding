@@ -11,36 +11,6 @@ import UIDataSetModal from "./UIDataSetModal";
 import UIModal from "./UIModal";
 
 const TranscriptDetailsModal = ({ results, isOpen, handleClose }) => {
-  const rowContainerStyles = {
-    width: "100%",
-    background: "rgba(0,0,0,0.3)",
-  };
-  const rowStyles = {
-    display: "flex",
-    justifyContent: "space-between",
-    width: "100%",
-    fontSize: "1.2rem",
-    color: xboxGreen,
-    padding: "25px",
-    paddingBottom: "5px",
-    paddingTop: "5px",
-    borderBottom: "2px solid rgba(0,0,0,0.1)",
-  };
-  const headerStyles = {
-    textAlign: "center",
-    color: xboxGreen,
-  };
-  const row = (key, value) => {
-    const keyStyles = {
-      fontWeight: "bold",
-    };
-    return (
-      <div style={rowStyles}>
-        <p style={keyStyles}>{key}</p>
-        <p>{value}</p>
-      </div>
-    );
-  };
   const getDuration = (time) => {
     if (!time) return "";
     return (time / 1000 / 60).toFixed(2) + " minutes";

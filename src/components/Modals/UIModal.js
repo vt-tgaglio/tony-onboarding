@@ -1,15 +1,6 @@
 import React from "react";
-import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import { formContainerStyles } from "../../styles/containers";
-
-const style = {
-  width: 400,
-  bgcolor: "background.paper",
-  border: "2px solid #000",
-  boxShadow: 24,
-  p: 4,
-};
 
 export default function UIModal({
   children,
@@ -19,7 +10,7 @@ export default function UIModal({
   testId = "ui-modal",
 }) {
   return (
-    <div className={className} data-test-id={testId}>
+    <div>
       <Modal
         open={isOpen}
         onClose={() => handleClose()}
@@ -27,6 +18,8 @@ export default function UIModal({
         aria-describedby="modal-modal-description"
       >
         <div
+          className={`ui-modal ${className}`}
+          data-test-id={`ui-modal-${testId}`}
           style={{
             ...formContainerStyles,
             position: "absolute",

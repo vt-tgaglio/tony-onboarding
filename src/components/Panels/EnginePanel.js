@@ -37,8 +37,8 @@ const EnginePanel = ({
   };
   return (
     <div
-      className="engine-panel"
-      data-test-id="engine-panel"
+      className={`engine-panel engine-panel-${engine}`}
+      data-test-id={`engine-panel-${engine}`}
       style={enginePanelStyles}
     >
       <EnginePanelArt engine={engine} />

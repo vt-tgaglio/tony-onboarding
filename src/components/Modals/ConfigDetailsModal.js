@@ -13,6 +13,7 @@ import {
   token,
   TRANSCRIPT_FILE_TYPE_ALLOWED,
   VERITONE_ENVIRONMENT_GQL_URL,
+  VERITONE_ENVIRONMENT_NAME,
 } from "../../config";
 import { xboxGreen } from "../../styles/colors";
 import UIDataSetModal from "./UIDataSetModal";
@@ -22,23 +23,23 @@ const ConfigDetailsModal = ({ isOpen, handleClose }) => {
     return { key: key, value: value };
   };
   const dataSet = [
-    createData("aiWARE Auth Token", token),
+    createData("Veritone Platform", VERITONE_ENVIRONMENT_NAME),
+    createData("Veritone Endpoint", VERITONE_ENVIRONMENT_GQL_URL),
+    createData("aiWARE auth token", token),
     createData("Auto click importer uploads enabled?", enableAutoUploadClicks),
-    createData("Recognition Mock Progress Speed", mockProgressSpeed),
-    createData("Transcription Mock Response Enabled?", enableMockApiResponse),
-    createData("Transcription API Timeout Duration", API_TIMEOUT_DURATION),
-    createData("Transcription API Polling Interval", API_POLL_FREQUENCY),
-    createData("Transcription API Mock Job Status", API_MOCK_JOB_STATUS),
-    createData("Transcription Matching Words", `${MATCH_WORDS.join(", ")}`),
+    createData("Recognition mock progress speed", mockProgressSpeed),
+    createData("Transcription mock response enabled?", enableMockApiResponse),
+    createData("Transcription API timeout duration", API_TIMEOUT_DURATION),
+    createData("Transcription API polling interval", API_POLL_FREQUENCY),
+    createData("Transcription API mock job status", API_MOCK_JOB_STATUS),
+    createData("Transcription matching words", `${MATCH_WORDS.join(", ")}`),
     createData(
-      "Transcription File Types Allowed",
+      "Transcription allowed file types",
       `${TRANSCRIPT_FILE_TYPE_ALLOWED.join(", ")}`
     ),
     createData("Transcription Engine ID", ENGINE_TRANSCRIPTION_ID),
-    createData("Engine Name", ENGINE_NAME_TRANSCRIPTION),
-    createData("Cluster ID", CLUSTER_ID),
-    createData("Veritone Platform", "STAGE"),
-    createData("Veritone Endpoint", VERITONE_ENVIRONMENT_GQL_URL),
+    createData("Transcription Engine Name", ENGINE_NAME_TRANSCRIPTION),
+    createData("Transcription Cluster ID", CLUSTER_ID),
   ];
   const footer = () => {
     const footerStyles = {

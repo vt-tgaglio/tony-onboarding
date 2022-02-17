@@ -26,10 +26,16 @@ export const TRANSCRIPT_FILE_TYPE_ALLOWED = ["audio/x-m4a", "audio/mpeg"];
 // API configs
 export const VERITONE_ENVIRONMENT_GQL_URL =
   "https://api.stage.us-1.veritone.com/v3/graphql";
+export const VERITONE_ENVIRONMENT_NAME = (() => {
+  if (VERITONE_ENVIRONMENT_GQL_URL.includes("api.stage.us-1")) return "STAGE";
+  if (VERITONE_ENVIRONMENT_GQL_URL.includes("api.us-1")) return "PROD";
+  if (VERITONE_ENVIRONMENT_GQL_URL.includes("api.dev.us-1")) return "DEV";
+  return "UNKNOWN! - Check GQL-URL!";
+})();
 export const enableMockApiResponse = !true;
 export const API_TIMEOUT_DURATION = enableMockApiResponse
   ? 5000 // Timeout using mock
-  : 1000 * 60 * 5; // Timeout to complete job
+  : 1000 * 60 * 15; // Timeout to complete job
 export const API_POLL_FREQUENCY = 3500; // How freqeunt the API calls to check status
 export const API_MOCK_JOB_STATUS = "complete";
 export const initialFileValue = { url: "testurl", file: { name: "xbox1.jpg" } };
