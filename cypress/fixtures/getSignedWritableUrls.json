@@ -1,0 +1,14 @@
+{
+  "data": {
+    "getSignedWritableUrls": [
+      {
+        "bucket": "stage-api.veritone.com",
+        "expiresInSeconds": 86400,
+        "getUrl": "https://s3.amazonaws.com/stage-api.veritone.com/7682/other/2022/1/4/_/16-6-888_2a208517-3865-4557-8192-12d74eca013b?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQMR5VATUHU3MEGOA%2F20220217%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20220217T164606Z&X-Amz-Expires=86400&X-Amz-Signature=faabc9c5c839bf03e35d452cd1588f81eb3e6fe4a60b604cf7493887bca7e500&X-Amz-SignedHeaders=host",
+        "key": "7682/other/2022/1/4/_/16-6-888_2a208517-3865-4557-8192-12d74eca013b",
+        "unsignedUrl": "https://s3.amazonaws.com/stage-api.veritone.com/7682/other/2022/1/4/_/16-6-888_2a208517-3865-4557-8192-12d74eca013b",
+        "url": "https://s3.amazonaws.com/stage-api.veritone.com/7682/other/2022/1/4/_/16-6-888_2a208517-3865-4557-8192-12d74eca013b?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQMR5VATUHU3MEGOA%2F20220217%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20220217T164606Z&X-Amz-Expires=86400&X-Amz-Signature=8fbffeaece7f5d792ee166081aeb0107c7accb636b85323fff115bee110ce192&X-Amz-SignedHeaders=host"
+      }
+    ]
+  }
+}

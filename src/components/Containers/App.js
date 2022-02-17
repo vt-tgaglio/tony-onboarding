@@ -10,6 +10,9 @@ import {
   initialObjectDetected,
   initialEngine,
   VERITONE_ENVIRONMENT_GQL_URL,
+  testModeFile,
+  testModeImageFile,
+  testModeAudioFile,
 } from "../../config";
 
 const App = () => {
@@ -19,6 +22,7 @@ const App = () => {
   const [object, setObject] = useState(initialObjectDetected);
   const [engine, setEngine] = useState(initialEngine);
   const [isAiwareAuthed, setIsAiwareAuthed] = useState(null);
+  const [isTestMode, setIsTestMode] = useState(false);
 
   const handleScanImage = () => {
     setIsScanning(true);
@@ -39,6 +43,9 @@ const App = () => {
     is included as the 'token' export string.
     `;
     setTimeout(() => {
+      if (checkTestNoAuthError()) return;
+      checkTestMode();
+
       const { status } = window.aiware.store.getState().auth;
       if (status === "failure") {
         console.warn(warningMsg);
@@ -47,7 +54,7 @@ const App = () => {
         console.log(`
         tony-onboarding:
         
-        User authenticated successfully with aiware auth token.
+        ✅ User authenticated successfully with aiware auth token
         `);
         setIsAiwareAuthed(true);
       } else {
@@ -56,7 +63,53 @@ const App = () => {
       }
     }, 500);
   };
+  const checkTestNoAuthError = () => {
+    const { hash } = new URL(window.location.href);
+    if (hash === "#test-no-auth-error") {
+      console.warn(`
+      tony-onboarding:
 
+      ❗️ NoAuthenticationError is being tested.
+      ❗️ aiWARE Session failure notice should appear.
+      `);
+      setIsAiwareAuthed(false);
+      return true;
+    }
+    return false;
+  };
+  const checkTestMode = () => {
+    const { hash } = new URL(window.location.href);
+    if (hash === "#test-mode") {
+      console.warn(`
+      tony-onboarding:
+
+      ❗️ Cypress Test Mode is enabled.
+      ❗️ Real API calls are not sent..
+      `);
+      setIsTestMode(true);
+      return true;
+    }
+    return false;
+  };
+  const setTestFile = () => {
+    const msg = `
+    tony-onboarding:
+    ❗️ Engine: ${engine.toUpperCase()}
+    ❗️ Test mode: Test file has been set..
+    `;
+    switch (engine) {
+      case "recognition":
+        setFile(testModeImageFile);
+        console.warn(msg + `\n IMAGE file set.`);
+        break;
+      case "transcribe":
+        setFile(testModeAudioFile);
+        console.warn(msg + `\n AUDIO file set.`);
+        break;
+      default:
+        break;
+    }
+  };
   useEffect(() => {
     window.aiware.init(
       {
@@ -112,6 +165,8 @@ const App = () => {
     <>
       {isAiwareAuthed === true ? (
         <Container
+          isTestMode={isTestMode}
+          setTestFile={setTestFile}
           file={file}
           onScanImage={handleScanImage}
           isScanning={isScanning}

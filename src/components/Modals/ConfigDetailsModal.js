@@ -18,28 +18,32 @@ import {
 import { xboxGreen } from "../../styles/colors";
 import UIDataSetModal from "./UIDataSetModal";
 
-const ConfigDetailsModal = ({ isOpen, handleClose }) => {
+const ConfigDetailsModal = ({ isOpen, handleClose, isTestMode }) => {
   const createData = (key, value) => {
     return { key: key, value: value };
   };
   const dataSet = [
     createData("Veritone Platform", VERITONE_ENVIRONMENT_NAME),
     createData("Veritone Endpoint", VERITONE_ENVIRONMENT_GQL_URL),
-    createData("aiWARE auth token", token),
-    createData("Auto click importer uploads enabled?", enableAutoUploadClicks),
-    createData("Recognition mock progress speed", mockProgressSpeed),
-    createData("Transcription mock response enabled?", enableMockApiResponse),
-    createData("Transcription API timeout duration", API_TIMEOUT_DURATION),
-    createData("Transcription API polling interval", API_POLL_FREQUENCY),
-    createData("Transcription API mock job status", API_MOCK_JOB_STATUS),
-    createData("Transcription matching words", `${MATCH_WORDS.join(", ")}`),
+    createData("aiWARE Auth Token", token),
+    createData("Auto-click Importer Uploads?", enableAutoUploadClicks),
+    createData("Recognition: Mock Progress Speed", mockProgressSpeed),
+    createData("Cypress Test Mode?", isTestMode),
     createData(
-      "Transcription allowed file types",
+      "Transcription: Mock Response?",
+      isTestMode || enableMockApiResponse
+    ),
+    createData("Transcription: API Job Timeout", API_TIMEOUT_DURATION),
+    createData("Transcription: API Poll Interval", API_POLL_FREQUENCY),
+    createData("Transcription: API Mock Job Status", API_MOCK_JOB_STATUS),
+    createData("Transcription: Match Words", `${MATCH_WORDS.join(", ")}`),
+    createData(
+      "Transcription: Allowed File Types",
       `${TRANSCRIPT_FILE_TYPE_ALLOWED.join(", ")}`
     ),
-    createData("Transcription Engine ID", ENGINE_TRANSCRIPTION_ID),
-    createData("Transcription Engine Name", ENGINE_NAME_TRANSCRIPTION),
-    createData("Transcription Cluster ID", CLUSTER_ID),
+    createData("Transcription: Engine ID", ENGINE_TRANSCRIPTION_ID),
+    createData("Transcription: Engine Name", ENGINE_NAME_TRANSCRIPTION),
+    createData("Transcription: Cluster ID", CLUSTER_ID),
   ];
   const footer = () => {
     const footerStyles = {

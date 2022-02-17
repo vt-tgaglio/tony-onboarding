@@ -56,3 +56,45 @@ export const initialScanResults = {
     },
   },
 };
+export const testModeAudioFile = {
+  id: "1ddfee6a-54de-4808-becb-502b763ee6a3",
+  file: {
+    lastModified: 1644948395519,
+    lastModifiedDate: new Date(
+      "Tue Feb 15 2022 13:06:35 GMT-0500 (Eastern Standard Time)"
+    ),
+    name: "test-ps-2.m4a",
+    size: 69489,
+    type: "audio/x-m4a",
+    webkitRelativePath: "",
+  },
+  percentComplete: 0,
+  expiresInSeconds: 86400,
+  getUrl:
+    "https://s3.amazonaws.com/stage-api.veritone.com/7682/other/2022/1/4/_/17-32-305_e903a6e9-2446-4be5-a486-8f583619fba6?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQMR5VATUHU3MEGOA%2F20220217%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20220217T173732Z&X-Amz-Expires=86400&X-Amz-Signature=c0783bf7582e0e086e8029f11706e2002b2536f6b6ca03cb26a900253aeb5ad8&X-Amz-SignedHeaders=host",
+  key: "7682/other/2022/1/4/_/17-32-305_e903a6e9-2446-4be5-a486-8f583619fba6",
+  unsignedUrl:
+    "https://s3.amazonaws.com/stage-api.veritone.com/7682/other/2022/1/4/_/17-32-305_e903a6e9-2446-4be5-a486-8f583619fba6",
+  url: "https://s3.amazonaws.com/stage-api.veritone.com/7682/other/2022/1/4/_/17-32-305_e903a6e9-2446-4be5-a486-8f583619fba6?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQMR5VATUHU3MEGOA%2F20220217%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20220217T173732Z&X-Amz-Expires=86400&X-Amz-Signature=3658418c39b0a8d0bb4579069d188e565f5fc79e9179ba31e21fcd73629e9e69&X-Amz-SignedHeaders=host",
+};
+export const testModeImageFile = {
+  id: "87b12dae-9f0c-4909-8155-b4647b7b2aaf",
+  file: {
+    lastModified: 1644427322797,
+    lastModifiedDate: new Date(
+      "Wed Feb 09 2022 12:22:02 GMT-0500 (Eastern Standard Time)"
+    ),
+    name: "playstation2.jpg",
+    size: 14150,
+    type: "image/jpeg",
+    webkitRelativePath: "",
+  },
+  percentComplete: 0,
+  expiresInSeconds: 86400,
+  getUrl:
+    "https://s3.amazonaws.com/stage-api.veritone.com/7682/other/2022/1/4/_/17-9-348_060bd7a9-f1cf-418f-9b0a-e5af73f3e571?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQMR5VATUHU3MEGOA%2F20220217%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20220217T171209Z&X-Amz-Expires=86400&X-Amz-Signature=62fe628c2c458c1919e1c50c1ae017b28d9abd48a92444099aa3a780ea59057f&X-Amz-SignedHeaders=host",
+  key: "7682/other/2022/1/4/_/17-9-348_060bd7a9-f1cf-418f-9b0a-e5af73f3e571",
+  unsignedUrl:
+    "https://s3.amazonaws.com/stage-api.veritone.com/7682/other/2022/1/4/_/17-9-348_060bd7a9-f1cf-418f-9b0a-e5af73f3e571",
+  url: "https://s3.amazonaws.com/stage-api.veritone.com/7682/other/2022/1/4/_/17-9-348_060bd7a9-f1cf-418f-9b0a-e5af73f3e571?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQMR5VATUHU3MEGOA%2F20220217%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20220217T171209Z&X-Amz-Expires=86400&X-Amz-Signature=e9df7366428341abc8875121c99bc10c7d4b7bfc1a948dc5a66de2485918aa65&X-Amz-SignedHeaders=host",
+};

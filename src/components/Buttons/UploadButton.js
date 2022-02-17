@@ -3,12 +3,14 @@ import { styled } from "@mui/material/styles";
 import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
 
-const Input = styled("input")({
-  display: "none",
-});
-
 export default function UploadButton(props) {
   const handleOpenFilePanel = () => {
+    console.log(`isTestMode: ${props.isTestMode}`);
+    if (props.isTestMode) {
+      console.log("setting test file");
+      props.setTestFile();
+      return;
+    }
     const microFrontend = {
       name: "DATA_CENTER_IMPORTER",
       config: {

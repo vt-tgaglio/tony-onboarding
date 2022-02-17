@@ -1,7 +1,7 @@
 import React from "react";
 import { xboxGreen } from "../../styles/colors";
 
-const ConfigButton = ({ onClick }) => {
+const ConfigButton = ({ onClick, isTestMode }) => {
   const containerStyles = {
     position: "absolute",
     bottom: 0,
@@ -34,7 +34,7 @@ const ConfigButton = ({ onClick }) => {
         data-test-id="config-button"
         style={buttonStyles}
       >
-        Open Configuration
+        {isTestMode ? "⚠️" : ""} Open Configuration
       </span>
     </div>
   );

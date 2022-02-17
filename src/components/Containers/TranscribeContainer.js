@@ -23,7 +23,7 @@ import TranscriptResultsDisplay from "../Feedback/TranscriptResultsDisplay";
 import TranscriptTimeoutError from "../Feedback/TranscriptTimeoutError";
 import ActionPanel from "../Panels/ActionPanel";
 
-const TranscribeContainer = ({ file, setObject }) => {
+const TranscribeContainer = ({ file, setObject, isTestMode, setTestFile }) => {
   const [jobId, setJobId] = useState(null);
   const [tdoId, setTdoId] = useState(null);
   const [isRunning, setIsRunning] = useState(false);
@@ -43,7 +43,7 @@ const TranscribeContainer = ({ file, setObject }) => {
       Invalid file type used for Transcription Engine.
       `);
     }
-    createAudioJob(file)
+    createAudioJob(file, isTestMode)
       .then((res) => {
         const { id, targetId } = res.data.launchSingleEngineJob;
 
@@ -60,11 +60,11 @@ const TranscribeContainer = ({ file, setObject }) => {
     let counter = 0;
     const poll = setInterval(() => {
       counter += API_POLL_FREQUENCY;
-      getAudioJobStatus(tdoIdQuery, jobIdQuery).then((res) => {
+      getAudioJobStatus(tdoIdQuery, jobIdQuery, isTestMode).then((res) => {
         const { status } = res.data.temporalDataObject.jobs.records[0];
         if (status === "complete") {
           clearInterval(poll);
-          getAudioJobResults(jobIdQuery).then((res) => {
+          getAudioJobResults(jobIdQuery, isTestMode).then((res) => {
             const parsedResults = generateAudioJobResults(
               parseAudioJobResults(res)
             );
@@ -102,7 +102,13 @@ const TranscribeContainer = ({ file, setObject }) => {
         />
       );
     } else {
-      return <UploadButton labelText="Upload Audio" />;
+      return (
+        <UploadButton
+          labelText="Upload Audio"
+          isTestMode={isTestMode}
+          setTestFile={setTestFile}
+        />
+      );
     }
   };
   return (

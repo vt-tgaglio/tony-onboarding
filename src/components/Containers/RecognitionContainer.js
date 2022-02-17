@@ -27,6 +27,8 @@ const RecognitionContainer = (props) => {
         >
           <UploadButton
             labelText={props.file.getUrl ? "Change Image" : "Upload Image"}
+            isTestMode={props.isTestMode}
+            setTestFile={props.setTestFile}
           />
         </ActionPanel>
         <ActionPanel

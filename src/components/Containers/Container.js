@@ -49,7 +49,12 @@ const Container = (props) => {
   };
   const renderTranscriptionEngineUI = () => {
     return (
-      <TranscribeContainer file={props.file} setObject={props.setObject} />
+      <TranscribeContainer
+        file={props.file}
+        isTestMode={props.isTestMode}
+        setTestFile={props.setTestFile}
+        setObject={props.setObject}
+      />
     );
   };
   const renderRecognitionEngineUI = () => {
@@ -58,6 +63,8 @@ const Container = (props) => {
         {!props.isScanning && (
           <RecognitionContainer
             file={props.file}
+            isTestMode={props.isTestMode}
+            setTestFile={props.setTestFile}
             onScanImage={props.onScanImage}
           />
         )}
@@ -83,8 +90,12 @@ const Container = (props) => {
       <HeroDisplay />
       <Backdrop object={props.object} />
 
-      <ConfigButton onClick={() => setIsConfigModalOpen(true)} />
+      <ConfigButton
+        onClick={() => setIsConfigModalOpen(true)}
+        isTestMode={props.isTestMode}
+      />
       <ConfigDetailsModal
+        isTestMode={props.isTestMode}
         isOpen={isConfigModalOpen}
         handleClose={() => setIsConfigModalOpen(false)}
       />

@@ -17,7 +17,7 @@ import {
   mockAudioTdoStatusResponse,
 } from "./mocks";
 
-export const createAudioJob = async (file) => {
+export const createAudioJob = async (file, isTestMode) => {
   console.log(`
     CREATE NEW AUDIO JOB
     -> Starting Audio Transcription Job.
@@ -33,7 +33,7 @@ export const createAudioJob = async (file) => {
   if (!TRANSCRIPT_FILE_TYPE_ALLOWED.includes(type)) {
     return new Error("File type not allowed");
   }
-  if (enableMockApiResponse) {
+  if (isTestMode || enableMockApiResponse) {
     return JSON.parse(mockAudioCreateJobResponse);
   } else {
     if (!file) {
@@ -46,10 +46,10 @@ export const createAudioJob = async (file) => {
     return data;
   }
 };
-export const getAudioJobStatus = async (tdoId, jobId) => {
+export const getAudioJobStatus = async (tdoId, jobId, isTestMode) => {
   let data;
 
-  if (enableMockApiResponse) {
+  if (isTestMode || enableMockApiResponse) {
     data = JSON.parse(mockAudioTdoStatusResponse);
   } else {
     const jobStatusQuery = tdoStatusQuery(tdoId);
@@ -69,7 +69,7 @@ export const getAudioJobStatus = async (tdoId, jobId) => {
   return data;
 };
 
-export const getAudioJobResults = async (jobId) => {
+export const getAudioJobResults = async (jobId, isTestMode) => {
   console.log(`
     AUDIO JOB COMPLETE
     -> Fetching engineResults for Job.
@@ -78,7 +78,7 @@ export const getAudioJobResults = async (jobId) => {
     | engineId:  ${ENGINE_TRANSCRIPTION_ID}
     | --------------------------------
     `);
-  if (enableMockApiResponse) {
+  if (isTestMode || enableMockApiResponse) {
     return JSON.parse(mockAudioEngineResultsResponse);
   } else {
     console.log("sending POST request....");

@@ -33,13 +33,10 @@ const TranscriptDetailsModal = ({ results, isOpen, handleClose }) => {
   };
   const dataSet = [
     createData("Transcription Engine ID", ENGINE_TRANSCRIPTION_ID),
-    createData(
-      "Mock Response Enabled?",
-      enableMockApiResponse ? "TRUE" : "FALSE"
-    ),
+    createData("Mock Response Enabled?", enableMockApiResponse),
     createData("Transcribed Text", `"${results.text}"`),
     createData("Matched Console", results.found),
-    createData("Total job time", getDuration(results.transcribeDuration)),
+    createData("Total Job Jime", getDuration(results.transcribeDuration)),
     createData("Engine Name*", ENGINE_NAME_TRANSCRIPTION),
     createData("Cluster ID*", CLUSTER_ID),
     createData("Veritone Platform*", "STAGE"),
