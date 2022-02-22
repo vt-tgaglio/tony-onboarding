@@ -23,13 +23,13 @@ export const createAudioJob = async (file, isTestMode) => {
     -> Starting Audio Transcription Job.
     | clusterId: ${CLUSTER_ID}
     | engineId:  ${ENGINE_TRANSCRIPTION_ID}
-    | file:      ${file?.file?.name}
+    | file:      ${file?.name}
     | getURL:    ${file?.getUrl}
     | --------------------------------
     `);
   console.log("File provided:");
   console.log(file);
-  const { type } = file.file;
+  const { type } = file;
   if (!TRANSCRIPT_FILE_TYPE_ALLOWED.includes(type)) {
     return new Error("File type not allowed");
   }

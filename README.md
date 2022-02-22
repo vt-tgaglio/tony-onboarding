@@ -12,9 +12,9 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 1. Open `/src/token.js` and set your aiware session token, save the file
 
-2. run npm install inside tony-onboarding root directory
+2. run `npm install` inside tony-onboarding root directory
 
-3. run npm start inside tony-onboarding root directory
+3. run `npm start` inside tony-onboarding root directory
 
 4. Navigate your browser to localhost:3000
 

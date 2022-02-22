@@ -30,7 +30,7 @@ const ScanningPanel = (props) => {
     props.setObject(objName);
   };
   const mockResults = () => {
-    const { name } = props.file.file;
+    const { name } = props.file;
     if (name.includes("playstation")) {
       updateObject("playstation");
     } else if (name.includes("xbox")) {

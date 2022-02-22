@@ -34,7 +34,7 @@ const TranscribeContainer = ({ file, setObject, isTestMode, setTestFile }) => {
   const [isInvalidFileType, setIsInvalidFileType] = useState(false);
 
   const initiateTranscribeJob = () => {
-    const { type } = file.file;
+    const { type } = file;
     if (!TRANSCRIPT_FILE_TYPE_ALLOWED.includes(type)) {
       setIsInvalidFileType(true);
       return console.warn(`
@@ -122,7 +122,7 @@ const TranscribeContainer = ({ file, setObject, isTestMode, setTestFile }) => {
         <ActionPanel
           className="upload-audio-panel"
           testId="upload-audio-panel"
-          description={file.getUrl ? file.file.name : "Detect Game Console"}
+          description={file?.getUrl ? file?.name : "Detect Game Console"}
           isEnabled
           image="./assets/img/add-audio.png"
         >
