@@ -35,6 +35,7 @@ const UIDataSetModal = ({
   const row = (key, value, index) => {
     const keyStyles = {
       fontWeight: "bold",
+      minWidth: "30%",
     };
     let val;
     if (value === true) {

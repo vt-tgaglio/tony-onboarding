@@ -4,9 +4,63 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Launch</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap"
+      rel="stylesheet"
+    />
+    <link href="./css/launch.css" rel="stylesheet" />
+    <title>Launch Xbox or PlayStation</title>
   </head>
   <body>
-    <a href="http://localhost:3000/">Go to http://localhost:3000/</a>
+    <a class="launch-btn" id="launch-btn" href="#">
+      <span>Launch Demo </span>
+      <img src="assets/img/grid-background.png" alt="" />
+    </a>
+    <div class="layer" id="layer-1">
+      <img
+        class="spaceship"
+        alt="spaceship cockpit"
+        src="./assets/img/spaceship_cockpit.png"
+      />
+    </div>
+    <div class="layer" id="layer-2">
+      <video autoplay muted loop width="1920px">
+        <source src="./assets/video/space.mp4" type="video/mp4" />
+        Sorry, your browser doesn't support embedded videos.
+      </video>
+    </div>
+    <div class="layer" id="layer-3">
+      <video autoplay muted loop width="1920px">
+        <source src="./assets/video/waveform.mp4" type="video/mp4" />
+        Sorry, your browser doesn't support embedded videos.
+      </video>
+    </div>
+    <div class="layer panels" id="layer-4">
+      <img
+        class="panel"
+        id="right-panel"
+        alt=""
+        src="./assets/img/floating-panel.png"
+      />
+      <img
+        class="panel"
+        id="left-panel"
+        alt=""
+        src="./assets/img/floating-panel.png"
+      />
+    </div>
+    <div class="layer monitors hide" id="layer-5">
+      <div class="aiware-panel">
+        <h1>Connecting to aiWARE.js...</h1>
+        <div class="code"></div>
+      </div>
+      <div class="aiware-panel countdown">
+        <h1>initializing...</h1>
+        <div class="count">-</div>
+      </div>
+    </div>
+    <script src="./lib/launch.js"></script>
   </body>
 </html>

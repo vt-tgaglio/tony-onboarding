@@ -69,6 +69,16 @@ const TranscriptResultsDisplay = ({ results, isTestMode }) => {
     }
   };
   const renderTranscript = () => {
+    const renderTextSnippet = (textSnip) => {
+      const snipLength = 100;
+
+      if (textSnip.length < snipLength) return textSnip;
+
+      return (
+        textSnip.slice(0, snipLength) +
+        `....   +${textSnip.length - snipLength}`
+      );
+    };
     const blockQuoteStyle = {
       fontWeight: "bold",
       color: "white",
@@ -77,7 +87,7 @@ const TranscriptResultsDisplay = ({ results, isTestMode }) => {
     return (
       <p style={transcriptStyles}>
         {blockQuote()}
-        {results?.text}
+        {renderTextSnippet(results?.text)}
         {blockQuote()}
       </p>
     );
