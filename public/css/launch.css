@@ -63,7 +63,7 @@ a.launch-btn {
   z-index: 100;
   transform: scale(1);
   transition: all 0.6s ease;
-  backdrop-filter: blur(4px);
+  /* backdrop-filter: blur(4px); */
   filter: drop-shadow(0px 34px 26px rgb(155 240 11 / 35%));
 }
 .layer {
@@ -168,5 +168,9 @@ img#left-panel {
   text-shadow: 0 0 14px rgb(155 240 11 / 85%);
 }
 .hide {
+  display: none;
+}
+
+.video-waveform {
   display: none;
 }

@@ -8,13 +8,14 @@ function init() {
 }
 function launchDemo() {
   codeFlash();
+  document.querySelector(".panels").classList.remove("hide");
   document.querySelector("#layer-5").classList.remove("hide");
   btn.classList.add("alert-btn");
   btn.querySelector("span").innerText = "Preparing for launch!";
   let codeFlashInterval = setInterval(() => {
     codeFlash();
   }, 500);
-  let count = 3;
+  let count = 5;
   counter.innerText = count;
   let countdown = setInterval(() => {
     count--;
